@@ -23,7 +23,7 @@ function Insumos() {
     setError(null);
     
     try {
-      const res = await fetch('http://localhost:3000/api/insumos');
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/insumos');
       
       if (!res.ok) {
         throw new Error(`Error ${res.status}: ${res.statusText}`);
@@ -84,8 +84,8 @@ function Insumos() {
     try {
       const metodo = insumo.id ? 'PUT' : 'POST';
       const url = insumo.id
-        ? `http://localhost:3000/api/insumos/${insumo.id}`
-        : `http://localhost:3000/api/insumos`;
+        ? `${import.meta.env.VITE_API_URL}/api/insumos/${insumo.id}`
+        : `${import.meta.env.VITE_API_URL}/api/insumos`;
 
       const res = await fetch(url, {
         method: metodo,
@@ -117,7 +117,7 @@ function Insumos() {
       setIsLoading(true);
       
       try {
-        const res = await fetch(`http://localhost:3000/api/insumos/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/insumos/${id}`, {
           method: 'DELETE',
         });
         

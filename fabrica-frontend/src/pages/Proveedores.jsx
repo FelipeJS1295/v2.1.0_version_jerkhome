@@ -23,7 +23,7 @@ function Proveedores() {
     setError(null);
     
     try {
-      const res = await fetch('http://localhost:3000/api/proveedores');
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/proveedores');
       
       if (!res.ok) {
         throw new Error(`Error ${res.status}: ${res.statusText}`);
@@ -92,8 +92,8 @@ function Proveedores() {
     try {
       const metodo = proveedor.id ? 'PUT' : 'POST';
       const url = proveedor.id
-        ? `http://localhost:3000/api/proveedores/${proveedor.id}`
-        : `http://localhost:3000/api/proveedores`;
+        ? `${import.meta.env.VITE_API_URL}/api/proveedores/${proveedor.id}`
+        : `${import.meta.env.VITE_API_URL}/api/proveedores`;
 
       const res = await fetch(url, {
         method: metodo,
@@ -125,7 +125,7 @@ function Proveedores() {
       setIsLoading(true);
       
       try {
-        const res = await fetch(`http://localhost:3000/api/proveedores/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/proveedores/${id}`, {
           method: 'DELETE',
         });
         

@@ -19,7 +19,7 @@ function VentasImportar() {
     formData.append('archivo', archivo);
 
     try {
-      const res = await fetch('http://localhost:3000/api/ventas/importar-falabella', {
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/ventas/importar-falabella', {
         method: 'POST',
         body: formData,
       });
@@ -42,7 +42,7 @@ function VentasImportar() {
     if (ventasPreview.length === 0) return;
 
     try {
-      const res = await fetch('http://localhost:3000/api/ventas/guardar', {
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/ventas/guardar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ventas: ventasPreview }),

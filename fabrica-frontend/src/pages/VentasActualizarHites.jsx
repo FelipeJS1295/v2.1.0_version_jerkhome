@@ -24,7 +24,7 @@ function VentasActualizarHites() {
     setErrores([]);
 
     try {
-      const res = await fetch('http://localhost:3000/api/ventas/actualizar-hites', {
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/ventas/actualizar-hites', {
         method: 'POST',
         body: formData,
       });

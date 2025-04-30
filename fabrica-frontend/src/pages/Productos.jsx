@@ -23,7 +23,7 @@ function Productos() {
     setError(null);
     
     try {
-      const res = await fetch('http://localhost:3000/api/productos');
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/productos');
       
       if (!res.ok) {
         throw new Error(`Error ${res.status}: ${res.statusText}`);
@@ -84,8 +84,8 @@ function Productos() {
     try {
       const metodo = producto.id ? 'PUT' : 'POST';
       const url = producto.id
-        ? `http://localhost:3000/api/productos/${producto.id}`
-        : `http://localhost:3000/api/productos`;
+        ? `${import.meta.env.VITE_API_URL}/api/productos/${producto.id}`
+        : `${import.meta.env.VITE_API_URL}/api/productos`;
 
       const res = await fetch(url, {
         method: metodo,
@@ -117,7 +117,7 @@ function Productos() {
       setIsLoading(true);
       
       try {
-        const res = await fetch(`http://localhost:3000/api/productos/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/productos/${id}`, {
           method: 'DELETE',
         });
         

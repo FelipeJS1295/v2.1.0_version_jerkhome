@@ -27,7 +27,7 @@ function VentasLista() {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('http://localhost:3000/api/ventas/listado');
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/ventas/listado');
       if (!res.ok) throw new Error('Error al cargar ventas');
       const data = await res.json();
       setVentas(data.ventas);
@@ -77,7 +77,7 @@ function VentasLista() {
     
     setIsProcessing(true);
     try {
-      const res = await fetch('http://localhost:3000/api/ventas/cambiar-estado', {
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/ventas/cambiar-estado', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ordenes: seleccionadas, estado: nuevoEstado }),
@@ -106,7 +106,7 @@ function VentasLista() {
 
     setIsProcessing(true);
     try {
-      const res = await fetch(`http://localhost:3000/api/ventas/eliminar/${numero_orden}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/ventas/eliminar/${numero_orden}`, {
         method: 'DELETE',
       });
       

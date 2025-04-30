@@ -45,7 +45,7 @@ function InsumoForm({ insumoSeleccionado, onSave, onCancel }) {
 
     // Obtener proveedores
     setLoadingProveedores(true);
-    fetch('http://localhost:3000/api/proveedores')
+    fetch('${import.meta.env.VITE_API_URL}/api/proveedores')
       .then(res => {
         if (!res.ok) {
           throw new Error(`Error ${res.status}: ${res.statusText}`);

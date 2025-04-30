@@ -21,7 +21,7 @@ function VentasMaestra() {
       setLoading(true);
       setError('');
       try {
-        const res = await fetch('http://localhost:3000/api/ventas/maestra');
+        const res = await fetch('${import.meta.env.VITE_API_URL}/api/ventas/maestra');
         if (!res.ok) throw new Error('Error al cargar la vista maestra');
         const data = await res.json();
         setDatos(data.datos);

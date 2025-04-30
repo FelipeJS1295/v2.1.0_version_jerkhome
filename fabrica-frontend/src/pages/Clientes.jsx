@@ -23,7 +23,7 @@ function Clientes() {
     setError(null);
     
     try {
-      const res = await fetch('http://localhost:3000/api/clientes');
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/clientes');
       
       if (!res.ok) {
         throw new Error(`Error ${res.status}: ${res.statusText}`);
@@ -91,8 +91,8 @@ function Clientes() {
     try {
       const metodo = cliente.id ? 'PUT' : 'POST';
       const url = cliente.id
-        ? `http://localhost:3000/api/clientes/${cliente.id}`
-        : `http://localhost:3000/api/clientes`;
+        ? `${import.meta.env.VITE_API_URL}/api/clientes/${cliente.id}`
+        : `${import.meta.env.VITE_API_URL}/api/clientes`;
 
       const res = await fetch(url, {
         method: metodo,
@@ -124,7 +124,7 @@ function Clientes() {
       setIsLoading(true);
       
       try {
-        const res = await fetch(`http://localhost:3000/api/clientes/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/clientes/${id}`, {
           method: 'DELETE',
         });
         
