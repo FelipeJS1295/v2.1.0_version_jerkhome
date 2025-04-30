@@ -1,0 +1,11 @@
+# Node backend y frontend
+**/node_modules/
+**/dist/
+**/build/
+
+# Variables de entorno
+**/.env
+
+# Otros
+.DS_Store
+.vscode/
